@@ -99,6 +99,36 @@ class ViewController: UIViewController {
         
         
     }
+    
+    var chosenColor: UIColor = UIColor.blackColor()
+    
+    @IBAction func chooseColor(sender: UIButton) {
+        print(chosenColor)
+        chosenColor = sender.backgroundColor ?? UIColor.blackColor()
+        
+    }
+    
+    
+    @IBAction func undo(sender: UIButton) {
+        
+        if (view as? DrawView)?.lines.count > 0 {
+        
+        (view as? DrawView)?.lines.removeLast()
+    view.setNeedsDisplay()
+        }
+        
+    }
+    
+    @IBAction func clearAction(sender: UIButton) {
+        
+        (view as? DrawView)?.lines = []
+        view.setNeedsDisplay()
+        
+        
+    }
+    
+   
+    
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         if let touch = touches.first {
@@ -153,11 +183,14 @@ class ViewController: UIViewController {
         
         
         shape.start = touch.locationInView(view)
+
         
         
         
         
-        shape.fillColor = UIColor.blackColor()
+        
+        
+        
         (view as? DrawView)?.lines.append(shape)
         
         
