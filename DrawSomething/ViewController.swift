@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var colorPallette: UICollectionView!
     
     @IBOutlet weak var controlPanelTop: NSLayoutConstraint!
     
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
     @IBAction func toggleControlPanel(sender: AnyObject) {
         
         self.controlPanelTop.constant = self.controlPanelView.frame.origin.y == 0 ? -200 : 0
+       
         view.setNeedsUpdateConstraints()
         
         UIView.animateWithDuration(0.4) { () -> Void in
@@ -28,9 +30,15 @@ class ViewController: UIViewController {
     }
     
     
+    let colorsSource = Colors()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
+        colorPallette.delegate = self
+        colorPallette.dataSource = colorsSource
+        colorPallette.reloadData()
     }
     
     
@@ -102,10 +110,18 @@ class ViewController: UIViewController {
     
     var chosenColor: UIColor = UIColor.blackColor()
     
-    @IBAction func chooseColor(sender: UIButton) {
-        print(chosenColor)
-        chosenColor = sender.backgroundColor ?? UIColor.blackColor()
-        
+//    @IBAction func chooseColor(sender: UIButton) {
+//        print(chosenColor)
+//        chosenColor = sender.backgroundColor ?? UIColor.blackColor()
+//        
+//    }
+    
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+   
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        chosenColor = cell?.backgroundColor ?? UIColor.blackColor()
+       
     }
     
     
@@ -200,6 +216,10 @@ class ViewController: UIViewController {
         view.setNeedsDisplay()
     
     
+        
 }
+    
+    
+    
 
 }

@@ -14,6 +14,9 @@
 		E69DFBDE1BBB30DA002FE787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E69DFBDC1BBB30DA002FE787 /* Main.storyboard */; };
 		E69DFBE01BBB30DA002FE787 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E69DFBDF1BBB30DA002FE787 /* Assets.xcassets */; };
 		E69DFBE31BBB30DA002FE787 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E69DFBE11BBB30DA002FE787 /* LaunchScreen.storyboard */; };
+		E6A403DA1BBF06D0009E59A9 /* TouchSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A403D91BBF06D0009E59A9 /* TouchSlider.swift */; };
+		E6A403DC1BBF1276009E59A9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A403DB1BBF1276009E59A9 /* Colors.swift */; };
+		E6A403E01BC17842009E59A9 /* BrushSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A403DF1BC17842009E59A9 /* BrushSelectionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		E69DFBDF1BBB30DA002FE787 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E69DFBE21BBB30DA002FE787 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E69DFBE41BBB30DA002FE787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6A403D91BBF06D0009E59A9 /* TouchSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TouchSlider.swift; path = "../../Simple-Apps/CustomSlider/CustomSlider/TouchSlider.swift"; sourceTree = "<group>"; };
+		E6A403DB1BBF1276009E59A9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		E6A403DF1BC17842009E59A9 /* BrushSelectionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushSelectionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +68,11 @@
 			children = (
 				E69DFBD81BBB30DA002FE787 /* AppDelegate.swift */,
 				E6924EED1BBDBDDD00BC733F /* DrawView.swift */,
+				E6A403D91BBF06D0009E59A9 /* TouchSlider.swift */,
 				E6924EEF1BBDBE0900BC733F /* ViewController.swift */,
+				E6A403DB1BBF1276009E59A9 /* Colors.swift */,
 				E6924EF11BBDBE2C00BC733F /* ToggleButton.swift */,
+				E6A403DF1BC17842009E59A9 /* BrushSelectionButton.swift */,
 				E69DFBDC1BBB30DA002FE787 /* Main.storyboard */,
 				E69DFBDF1BBB30DA002FE787 /* Assets.xcassets */,
 				E69DFBE11BBB30DA002FE787 /* LaunchScreen.storyboard */,
@@ -143,6 +152,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6924EF01BBDBE0900BC733F /* ViewController.swift in Sources */,
+				E6A403DC1BBF1276009E59A9 /* Colors.swift in Sources */,
+				E6A403E01BC17842009E59A9 /* BrushSelectionButton.swift in Sources */,
+				E6A403DA1BBF06D0009E59A9 /* TouchSlider.swift in Sources */,
 				E6924EEE1BBDBDDD00BC733F /* DrawView.swift in Sources */,
 				E69DFBD91BBB30DA002FE787 /* AppDelegate.swift in Sources */,
 				E6924EF21BBDBE2C00BC733F /* ToggleButton.swift in Sources */,
