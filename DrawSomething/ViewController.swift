@@ -29,6 +29,9 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
+    @IBAction func isFillPressed(sender: BrushSelectionButton) {
+        
+    }
     
     let colorsSource = Colors()
     

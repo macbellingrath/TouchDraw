@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable
 class BrushSelectionButton: UIButton {
     
+    @IBInspectable var status = true
     
     @IBInspectable var shapeType: Int = 0
 
@@ -75,12 +76,43 @@ class BrushSelectionButton: UIButton {
             CGContextAddLineToPoint(context, left.x, left.y - 6 )
             CGContextAddLineToPoint(context, top.x, top.y + 2)
             CGContextStrokePath(context)
+            
+        case 7:
+            if !status {
+            CGContextMoveToPoint(context, rect.minX + 5, rect.width/2)
+            CGContextAddLineToPoint(context, rect.maxX - 5 , rect.width/2)
+            CGContextStrokePath(context)
+            } else if status {
+                CGContextMoveToPoint(context, rect.minX + 5, rect.width/2)
+                CGContextAddLineToPoint(context, rect.maxX - 5 , rect.width/2)
+                CGContextSetLineWidth(context, 10)
+                CGContextStrokePath(context)
+                
+            }
+
+            
 
         default:
             CGContextStrokeRect(context, CGRectInset(rect, 10, 10))
             
         }
         
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        if let touch = touches.first {
+           
+            if tag == 7 {
+                if status {
+                    status = false
+                } else  if !status {
+                    status = true
+                }
+                setNeedsDisplay()
+                
+            }
+        }
     }
     
     
