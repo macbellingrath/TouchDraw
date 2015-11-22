@@ -16,25 +16,41 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var controlPanelView: UIView!
     
+    @IBOutlet weak var isFillColor: BrushSelectionButton!
+    
+ 
+    
     @IBAction func toggleControlPanel(sender: AnyObject) {
         
         self.controlPanelTop.constant = self.controlPanelView.frame.origin.y == 0 ? -200 : 0
+        
+        toggleButton.transform = self.controlPanelTop.constant == 0 ?  CGAffineTransformMakeRotation(degreesToRadians(-180)) : CGAffineTransformMakeRotation(degreesToRadians(180))
        
         view.setNeedsUpdateConstraints()
         
         UIView.animateWithDuration(0.4) { () -> Void in
+           
+            
+            self.view.setNeedsDisplay()
             
             self.view.layoutIfNeeded()
+            
         }
         
     }
     
-    @IBAction func isFillPressed(sender: BrushSelectionButton) {
-        
-    }
+    
+    
+    
+//    #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+//    
+//    double rads = DEGREES_TO_RADIANS(240);
+//    CGAffineTransform transform = CGAffineTransformRotate(CGAffineTransformIdentity, rads);
+//    self.arrowView.transform = transform;
     
     let colorsSource = Colors()
     
+    @IBOutlet weak var toggleButton: ToggleButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
@@ -58,7 +74,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                 newScribble.points.append(touch.locationInView(view))
                 
                 newScribble.strokeWidth = 10
-                newScribble.strokeColor = UIColor.blackColor()
+                newScribble.strokeColor = chosenColor
                 
                 (view as? DrawView)?.lines.append(newScribble)
             case 2:
@@ -67,7 +83,13 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                 let shape = Shape(type: .Circle)
                 
                 shape.start = touch.locationInView(view)
-                shape.fillColor = UIColor.blackColor()
+                //check for fill color 
+                if let fillColor = isFillColor {
+                    if fillColor == true {
+                         shape.fillColor = UIColor.blackColor()
+                    }
+                }
+                
                 
                 (view as? DrawView)?.lines.append(shape)
                 
@@ -103,21 +125,25 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     var chosenTool = 0
     
     
-    @IBAction func chooseTool(sender: UIButton) {
+    @IBAction func chooseTool(sender: AnyObject) {
+        if let button = sender as? BrushSelectionButton{
+        chosenTool = button.tag
+        print(button.tag
+            )
         
-        chosenTool = sender.tag
-        
-        
-        
+        }
+        else {
+            print("something went wrong'")
+        }
     }
     
     var chosenColor: UIColor = UIColor.blackColor()
     
-//    @IBAction func chooseColor(sender: UIButton) {
-//        print(chosenColor)
-//        chosenColor = sender.backgroundColor ?? UIColor.blackColor()
-//        
-//    }
+    @IBAction func chooseColor(sender: UIButton) {
+        print(chosenColor)
+        chosenColor = sender.backgroundColor ?? UIColor.blackColor()
+        
+    }
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -125,6 +151,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         chosenColor = cell?.backgroundColor ?? UIColor.blackColor()
        
+        print(chosenColor)
     }
     
     
@@ -223,6 +250,8 @@ class ViewController: UIViewController, UICollectionViewDelegate {
 }
     
     
-    
+    func degreesToRadians(x: Double) -> CGFloat {
+        return CGFloat(M_PI * (x) / 180.0)
+    }
 
 }

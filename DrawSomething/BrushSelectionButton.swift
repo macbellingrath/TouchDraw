@@ -101,7 +101,7 @@ class BrushSelectionButton: UIButton {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        if let touch = touches.first {
+        if let _ = touches.first {
            
             if tag == 7 {
                 if status {

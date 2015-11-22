@@ -117,24 +117,21 @@
                                                         <outlet property="delegate" destination="Rs3-kQ-WvC" id="8cg-cQ-OTA"/>
                                                     </connections>
                                                 </collectionView>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRy-dA-PHE" customClass="TouchSlider" customModule="DrawSomething" customModuleProvider="target">
-                                                    <rect key="frame" x="59" y="67" width="243" height="31"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRy-dA-PHE" customClass="TouchSlider" customModule="DrawSomething" customModuleProvider="target">
+                                                    <rect key="frame" x="67" y="67" width="235" height="31"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5V7-UC-6Lu" customClass="BrushSelectionButton" customModule="DrawSomething" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="67" width="31" height="30"/>
+                                                    <rect key="frame" x="18" y="69" width="36" height="34"/>
                                                     <animations/>
-                                                    <connections>
-                                                        <action selector="isFillPressed:" destination="Rs3-kQ-WvC" eventType="touchUpInside" id="e1S-E4-ss0"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="SRy-dA-PHE" firstAttribute="centerX" secondItem="32K-lx-XlX" secondAttribute="centerX" constant="7" id="1gE-tw-YcW"/>
+                                                <constraint firstItem="SRy-dA-PHE" firstAttribute="centerX" secondItem="32K-lx-XlX" secondAttribute="centerX" constant="24" id="1gE-tw-YcW"/>
                                                 <constraint firstItem="32K-lx-XlX" firstAttribute="bottom" secondItem="TCA-uG-JIF" secondAttribute="bottomMargin" id="5U5-Kn-7aX"/>
-                                                <constraint firstItem="SRy-dA-PHE" firstAttribute="leading" secondItem="TCA-uG-JIF" secondAttribute="leading" constant="33" id="JOw-2A-IdW"/>
+                                                <constraint firstItem="SRy-dA-PHE" firstAttribute="leading" secondItem="TCA-uG-JIF" secondAttribute="leading" constant="67" id="JOw-2A-IdW"/>
                                                 <constraint firstItem="SRy-dA-PHE" firstAttribute="top" secondItem="TCA-uG-JIF" secondAttribute="top" constant="67" id="UDf-IW-33o"/>
                                                 <constraint firstItem="qaS-nB-RV2" firstAttribute="baseline" secondItem="ePE-9v-epG" secondAttribute="baseline" id="UHT-Yx-OUs"/>
                                                 <constraint firstItem="ePE-9v-epG" firstAttribute="leading" secondItem="qaS-nB-RV2" secondAttribute="trailing" constant="64" id="dEZ-09-3GU"/>
@@ -195,6 +192,8 @@
                         <outlet property="colorPallette" destination="ujs-sC-E50" id="C6S-50-nhs"/>
                         <outlet property="controlPanelTop" destination="F7n-72-Ovs" id="pJj-IZ-EYo"/>
                         <outlet property="controlPanelView" destination="WWB-Co-OWt" id="qE8-9B-U1u"/>
+                        <outlet property="isFillColor" destination="5V7-UC-6Lu" id="kVD-QD-6v4"/>
+                        <outlet property="toggleButton" destination="5Wd-XM-ssN" id="4vd-zq-7wy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tqe-VU-PTS" sceneMemberID="firstResponder"/>
